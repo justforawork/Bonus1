@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App5.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:App5">
+
+    <StackLayout
+        BackgroundColor="DarkSlateGray">
+        <Label
+            x:Name="topLabel"
+            FontSize="40"
+            HorizontalOptions="Center"
+            Text="ON / OFF"
+            VerticalOptions="Center" />
+        <Switch
+            x:Name="mainSwitch"
+            HorizontalOptions="CenterAndExpand"
+            IsToggled="false"
+            VerticalOptions="Center" />
+        <Button
+            x:Name="configButton"
+            Clicked="ConfigButton_Clicked"
+            FontSize="30"
+            Text="Configuration" />
+        <Label
+            x:Name="passLabel"
+            FontSize="20"
+            HorizontalTextAlignment="Center"
+            Text="Enter password:" />
+        <Entry
+            x:Name="passEntry"
+            BackgroundColor="LightGray"
+            IsPassword="True"
+            Placeholder="Password" />
+        <Button
+            x:Name="stopPlayingButton"
+            Clicked="StopPlayingButton_Clicked"
+            Text="Stop playing" />
+        <Label
+            x:Name="newPassLabel"
+            FontSize="20"
+            HorizontalTextAlignment="Center"
+            Text="Enter new password:" />
+        <Entry
+            x:Name="newPassEntry"
+            BackgroundColor="LightGray"
+            IsPassword="True"
+            Placeholder=" New password" />
+        <Button
+            x:Name="applyButton"
+            Clicked="ApplyButton_Clicked"
+            Text="OK" />
+        <Label
+            x:Name="xLabel"
+            FontSize="16"
+            HorizontalTextAlignment="Center"
+            Text="x:" />
+        <Label
+            x:Name="yLabel"
+            FontSize="16"
+            HorizontalTextAlignment="Center"
+            Text="y:" />
+        <Label
+            x:Name="zLabel"
+            FontSize="16"
+            HorizontalTextAlignment="Center"
+            Text="z:" />
+    </StackLayout>
+
+
+</ContentPage>
