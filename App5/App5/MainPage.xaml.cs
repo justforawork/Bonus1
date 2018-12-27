@@ -11,6 +11,7 @@ namespace App5
     {
         private string password = "123";
         SensorSpeed speed = SensorSpeed.UI;
+        bool isPlaying=false;
         //double xA, yA, zA;
 
         public MainPage()
@@ -46,14 +47,14 @@ namespace App5
             xA = data.Acceleration.X;
             yA = data.Acceleration.Y;
             zA = data.Acceleration.Z;
-            if (Abs(xA) + Abs(yA) + Abs(zA) >= 1.5)
+            if (Abs(xA) + Abs(yA) + Abs(zA) >= 1.5 && !isPlaying)
+            {
                 DependencyService.Get<IAudio>().PlayMp3File();
+                isPlaying = true;
+            }
             xLabel.Text = " X: " + xA;
             yLabel.Text = " Z: " + yA;
             zLabel.Text = " Y: " + zA;
-            xA = 0;
-            yA = 0;
-            zA = 0;
         }
 
         public void ToggleAccelerometer()
@@ -110,6 +111,7 @@ namespace App5
             if (passEntry.Text == password)
             {
                 DependencyService.Get<IAudio>().StopPlay();
+                isPlaying = false;
             }
             else
                 DisplayAlert("!", "You wrote wrong password.", "ОK");

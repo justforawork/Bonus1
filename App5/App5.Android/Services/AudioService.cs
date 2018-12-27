@@ -17,12 +17,13 @@ namespace App5.Droid.Services
         {
             try
             {
-                _mediaPlayer = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.siren);
+               _mediaPlayer = MediaPlayer.Create(global::Android.App.Application.Context, Resource.Raw.siren);
             }
             catch (Exception ex)
             {
                 // Other error has occurred.
             }
+            if(!_mediaPlayer.IsPlaying)
             _mediaPlayer.Start();
 
             return true;
@@ -30,9 +31,14 @@ namespace App5.Droid.Services
 
         public bool StopPlay()
         {
-                _mediaPlayer.Stop();
+            try
+            { _mediaPlayer.Stop();
                 _mediaPlayer.Reset();
-            
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
             return true;
         }
         
